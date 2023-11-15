@@ -1,0 +1,1521 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Floods Webpage</title>
+<!--     <link rel="stylesheet" href="/10.222+Project Floods/style.css"> -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <style>
+        body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header {
+    background-color: #3498db;
+    color: #ffffff;
+    text-align: center;
+    padding: 20px;
+    width: 100%;
+    position: relative;
+}
+
+h1 {
+    margin-bottom: 10px;
+}
+
+.main-slider-container {
+    width: 80%;
+    overflow: hidden;
+    margin: 20px;
+    box-sizing: border-box;
+}
+
+.main-slider-wrapper {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.main-section {
+    min-width: 99%;
+    box-sizing: border-box;
+}
+
+.sub-slider-container {
+    width: 100%;
+    overflow: hidden;
+    height: 400px; /* Set a fixed height for the sub-slider container */
+    overflow-y: auto; /* Enable vertical scrolling if needed */
+}
+
+.sub-slider-wrapper {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.innerbox {
+    background-color: #f4f3ef;
+    box-sizing: border-box;
+    min-width: 100%;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 5px 0;
+}
+
+.case-study {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+h2 {
+    color: #3498db;
+    margin-bottom: 20px;
+}
+p {
+    line-height: 1.6;
+    color: #555;
+}
+footer {
+    background-color: #3498db;
+    color: #ffffff;
+    text-align: center;
+    padding: 10px;
+    width: 100%;
+    margin-top: auto;
+}
+button {
+    margin: 10px;
+    padding: 8px 16px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #3498db;
+    color: #ffffff;
+}
+.section-title {
+    color: #3498db;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.section-content {
+    margin-bottom: 20px;
+}
+
+nav {
+    background-color: #3498db;
+    color: white;
+    padding: 1em;
+    text-align: center;
+    width: 100%;
+
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+    width: 100%;
+}
+
+
+
+section {
+    background-color: #e5e3d9;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 5px;
+    width: 80%;
+    box-sizing: border-box; 
+}
+
+
+
+
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+.highlight {
+    background-color: #f4f3ef;
+    color: #ffffff;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.conclusion{
+    background-color: #f4f3ef;
+    width: 98%;
+    /* padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px; */
+    text-align: center;
+}
+
+.introduction-img {
+    float: left;
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+
+/* .causes-img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 20px 0;
+    
+} */
+
+#map {
+    height: 500px;
+    width: 90%;
+    margin: 20px;
+    box-sizing: border-box;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+
+#prevButton2, #nextButton2 {
+    margin: 10px;
+    padding: 8px 16px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#prevButton2:hover, #nextButton2:hover {
+    background-color: #3498db;
+    color: #ffffff;
+}
+#case1 .image-and-text-container {
+    overflow: hidden; /* Clear the float */
+}
+
+#case1 .image1 {
+    float: left;
+    margin-right: 20px;
+}
+
+#case1 .text1 {
+    overflow: hidden; /* Clear the float */
+}
+
+#one{
+    width: 98%;
+}
+ #two{
+    width: 98%;
+}    
+    
+#three{
+    width: 98%;
+}
+#four{
+    width: 98%;
+}
+#five{
+    width: 98%;
+}
+#six{
+    width: 98%;
+}
+/* #seven{
+    width: 98%;
+}
+#eight{
+    width: 98%;
+} */
+
+#nine{
+    width: 98%;
+}
+.main-slider-container1 {
+    width: 80%;
+    overflow: hidden;
+    margin: 20px;
+    box-sizing: border-box;
+}
+
+.main-slider-wrapper1 {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.main-section2 {
+    min-width: 99%;
+    box-sizing: border-box;
+}
+
+.sub-slider-container1 {
+    width: 100%;
+    overflow: hidden;
+    height: 400px; /* Set a fixed height for the sub-slider container */
+    overflow-y: auto; /* Enable vertical scrolling if needed */
+}
+
+.sub-slider-wrapper1 {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.innerbox {
+    background-color: #f4f3ef;
+    box-sizing: border-box;
+    min-width: 100%;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 5px 0;
+}
+
+.cause-study {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.section-content1 {
+    margin-bottom: 20px;
+}
+#cause1 .image-and-text-container {
+    overflow: hidden; /* Clear the float */
+}
+#cause1 .image1 {
+    float: left;
+    margin-right: 20px;
+}
+#cause1 .text1 {
+    overflow: hidden; /* Clear the float */
+}
+.section-title1 {
+    color: #3498db;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+.main-slider-container2 {
+    width: 80%;
+    overflow: hidden;
+    margin: 20px;
+    box-sizing: border-box;
+}
+
+.main-slider-wrapper2 {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.main-section3 {
+    min-width: 99%;
+    box-sizing: border-box;
+}
+
+.sub-slider-container2 {
+    width: 100%;
+    overflow: hidden;
+    height: 400px; /* Set a fixed height for the sub-slider container */
+    overflow-y: auto; /* Enable vertical scrolling if needed */
+}
+
+.sub-slider-wrapper2 {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.innerbox {
+    background-color: #f4f3ef;
+    box-sizing: border-box;
+    min-width: 100%;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 5px 0;
+}
+
+.com-study {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.section-content2 {
+    margin-bottom: 20px;
+}
+/* #com1 .image-and-text-container {
+    overflow: hidden; 
+} */
+/* #com1 .image1 {
+    float: left;
+    margin-right: 20px;
+} */
+#com1 .text1 {
+    overflow: hidden; /* Clear the float */
+}
+.section-title2 {
+    color: #3498db;
+    font-size: 24px;
+    margin-bottom: 10px;
+
+
+
+
+}
+.main-slider-container3 {
+    width: 80%;
+    overflow: hidden;
+    margin: 20px;
+    box-sizing: border-box;
+}
+
+.main-slider-wrapper3 {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.main-section4 {
+    min-width: 99%;
+    box-sizing: border-box;
+}
+
+.sub-slider-container3 {
+    width: 100%;
+    overflow: hidden;
+    height: 400px; /* Set a fixed height for the sub-slider container */
+    overflow-y: auto; /* Enable vertical scrolling if needed */
+}
+
+.sub-slider-wrapper3 {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.innerbox {
+    background-color: #f4f3ef;
+    box-sizing: border-box;
+    min-width: 100%;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 5px 0;
+}
+
+.imp-study {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.section-content3 {
+    margin-bottom: 20px;
+}
+/* #com1 .image-and-text-container {
+    overflow: hidden; 
+} */
+/* #com1 .image1 {
+    float: left;
+    margin-right: 20px;
+} */
+#imp1 .text1 {
+    overflow: hidden; /* Clear the float */
+}
+.section-title3 {
+    color: #3498db;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Floods: Understanding Causes, Effects, and Prevention</h1>
+
+
+        <nav>
+            <a href="#introduction">Introduction</a>
+            <a href="#causes">Causes</a>
+            <a href="#effects">Effects</a>
+            <a href="#prevention">Prevention</a>
+            <a href="#casestudies">Case Studies</a>
+            <a href="#conclusion">Conclusion</a>
+        </nav>
+    </header>
+
+    <section id="introduction">
+        <section class="innerbox" id="one">
+            <img class="introduction-img" src="https://img.freepik.com/premium-photo/cataclysmic-flooding-generative-ai_918839-2243.jpg"
+                width="500px" alt="Introduction Image">
+            <h2>Introduction</h2>
+            <p>"Floods, natural phenomena of immense impact, are among the most formidable challenges faced by
+                communities
+                worldwide. Defined by the overflow of water onto normally dry land, floods can arise from a multitude of
+                sources,
+                ranging from heavy rainfall and storm surges to human-induced factors such as urbanization and
+                deforestation. The
+                consequences of floods are far-reaching, affecting ecosystems, communities, and economies alike.
+                Immediate
+                dangers
+                include property damage, displacement of populations, and threats to public health. However, the
+                long-term
+                effects
+                extend to disruptions in agriculture, infrastructure, and overall societal well-being. Understanding the
+                causes,
+                effects, and proactive measures for flood prevention is crucial in developing resilient communities and
+                safeguarding against the increasing frequency and intensity of these events. This webpage delves into
+                the
+                intricacies of floods, exploring their origins, impacts, and the strategies employed to mitigate their
+                devastating
+                effects."</p>
+        </section>
+    </section>
+    <section id="causes">
+        <h2>Causes</h2>
+
+
+        <p>Floods result from a complex interplay of natural and human-induced factors. Natural causes include
+            intense
+            rainfall, tropical cyclones, or rapid snowmelt, overwhelming riverbanks and drainage systems. Storm
+            surges,
+            often associated with hurricanes, can lead to coastal flooding. Additionally, geological events like
+            earthquakes may trigger tsunamis, causing inundation. On the human front, urbanization alters land
+            surfaces,
+            reducing natural drainage and increasing runoff. Deforestation disrupts ecosystems and reduces
+            vegetation,
+            diminishing the natural ability to absorb and slow water. Poor land-use planning, inadequate
+            infrastructure,
+            and the construction of dams without proper management can exacerbate flooding. Climate change further
+            amplifies these risks, leading to more frequent and severe floods. Understanding this dual nature of
+            flood
+            causation is vital for implementing effective prevention and mitigation measures.</p>
+    </section>
+    <div class="main-slider-container1">
+        <div class="main-slider wrapper1">
+
+
+            <section id="causes" class="main-section2">
+                <h2>Types of Causes:</h2>
+
+
+                <div class="sub-slider-container1">
+                    <div class="sub-slider-wrapper1">
+
+
+                        <section class="innerbox" class="innerbox section1" class="section" id="cause1">
+                            <h3>1. Heavy Rainfall:</h3>
+                            <div class="cause-study" class="section-content1" class="image-and-text-container">
+                                <img src="https://t4.ftcdn.net/jpg/06/10/63/45/240_F_610634531_L2ZrA2IAZIXAL9MqUc16lTAzvjU5qyTy.jpg" width=250px class="image2"
+                                    alt="Causes Image">
+                                <div class="text2">
+                                    <ul>
+                                        <li>
+                                            <p class="float-text"><strong>Intense Precipitation Events:</strong>
+                                                Prolonged
+                                                and heavy
+                                                rainfall
+                                                can lead to
+                                                saturation of
+                                                the soil, exceeding its capacity to absorb water.</p>
+                                        </li>
+                                        <li>
+                                            <p><strong>Flash Floods:</strong> Sudden, intense rainfall can cause flash
+                                                floods, characterized
+                                                by
+                                                rapid and unexpected rises in water levels.</p>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section class="innerbox" class="innerbox section1" class="section" id="cause1">
+                            <h3> 2. Storm Surges:</h3>
+                            <div class="cause-study" class="section-content1" class="image-and-text-container">
+                                <img src="https://s.w-x.co//util/image/w/sandy-surge-2012_980x551.jpg?crop=16:9&width=480&format=pjpg&auto=webp&quality=60"
+                                    width=300px class="image2" alt="Causes Image">
+                                <div class="text2">
+                                    <ul>
+                                        <li>
+                                            <p><strong> Tropical Cyclones and Hurricanes:</strong> Powerful storms,
+                                                especially in
+                                                coastal
+                                                areas,
+                                                can
+                                                induce storm
+                                                surges—abnormal rises in sea level—that inundate low-lying areas.</p>
+                                        </li>
+                                        <li>
+                                            <p><strong> Wind-Driven Water: </strong> Strong winds associated with storms
+                                                push
+                                                seawater
+                                                toward
+                                                the
+                                                shore, compounding the
+                                                flooding risk.</p>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section class="innerbox" class="section" class="innerbox-section1" id="cause1">
+                            <h3>3. Dam Failures:</h3>
+                            <div class="cause-study" class="section-content1" class="image-and-text-container">
+                                <img src="https://i.ytimg.com/vi/lYbFLBqJXVc/maxresdefault.jpg" alt="Dam Failure Image"
+                                    width="300px" class="image2">
+                                <div class="text2">
+                                    <ul>
+                                        <li>
+                                            <p><strong>Structural Issues:</strong> Dam failures can occur due to
+                                                structural
+                                                deficiencies,
+                                                poor
+                                                maintenance, or inadequate
+                                                design.</p>
+                                        </li>
+                                        <li>
+                                            <p><strong> Overtopping and Breaching:</strong> Excessive water inflow can
+                                                lead to
+                                                overtopping
+                                                or
+                                                breaching of dams, releasing
+                                                large volumes downstream.</p>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </section>
+
+
+                        <section class="innerbox" class="section" class="innerbox section1" id="cause1">
+                            <h3> 4. Urbanization:</h3>
+                            <div class="cause-study" class="section-content1" class="image-and-text-container">
+                                <img src="https://images.newscientist.com/wp-content/uploads/2018/11/14105623/rtx3dl7m.jpg"
+                                    alt="Dam Failure Image" width="250px" class="image2">
+                                <div class="text2">
+                                    <ul>
+                                        <li>
+                                            <p><strong>Increased Impervious Surfaces:</strong>Urban development replaces
+                                                natural
+                                                surfaces
+                                                with
+                                                impervious ones, reducing
+                                                infiltration and increasing surface runoff.</p>
+                                        </li>
+                                        <li>
+                                            <p><strong>Inadequate Drainage:</strong> Poor urban planning and
+                                                insufficient drainage
+                                                systems
+                                                contribute to localized flooding,
+                                                especially in urban areas.</p>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </section>
+
+
+                        <section class="innerbox" class="section" class="innerbox section1" id="cause1">
+                            <h3> 5. Deforestation:</h3>
+                            <div class="cause-study" class="section-content1" class="image-and-text-container">
+                                <img src="https://files.worldwildlife.org/wwfcmsprod/images/Deforestation_in_Tesso_Nilo_Sumatra/story_full_width/1e7g2a63k2_deforestation_causes_HI_104236.jpg" alt="Dam Failure Image"
+                                    width="300px" class="image2">
+                                <div>
+                                    <ul>
+                                        <li>
+                                            <p><strong> Loss of Vegetation:</strong> Deforestation diminishes the
+                                                natural ability of
+                                                forests
+                                                to
+                                                absorb and slow down water,
+                                                increasing runoff.</p>
+                                        </li>
+                                        <li>
+                                            <p><strong> Soil Erosion:</strong> Without tree roots to anchor the soil,
+                                                erosion
+                                                intensifies,
+                                                leading
+                                                to sedimentation in rivers
+                                                and decreased water absorption.</p>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </section>
+
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+    <!-- <p>Understanding these specific causes is crucial for implementing targeted prevention and mitigation
+                strategies to reduce the risk and impact of floods.</p>
+        </section>
+                    </div>
+                </div>
+    
+    </section> -->
+    <button id="nextButton2">Next</button><button id="prevButton2">Previous</button>
+
+    <section id="effects">
+        <h2>Effects</h2>
+        <section class="innerbox" id="three">
+            <h3>Immediate Effects of Floods:</h3>
+            <ul>
+                <li>
+                    <p><strong>Environmental Degradation:</strong> Floodwaters cause immediate harm to ecosystems,
+                        leading
+                        to soil erosion, loss of vegetation, and contamination of water sources.</p>
+                </li>
+                <li>
+                    <p><strong>Community Displacement:</strong> Swift and severe floods force immediate evacuations,
+                        displacing communities and causing disruptions to daily life.</p>
+                </li>
+                <li>
+                    <p><strong>Infrastructure Damage:</strong> Floods result in the immediate destruction of roads,
+                        bridges,
+                        buildings, and utilities, hampering transportation and essential services.</p>
+                </li>
+                <li>
+                    <p><strong>Loss of Lives:</strong> Tragically, floods can lead to immediate loss of lives as people
+                        may
+                        be caught in the rapid rise of water levels.</p>
+                </li>
+            </ul>
+
+            <h3>Long-Term Effects of Floods:</h3>
+            <ul>
+                <li>
+                    <p><strong>Environmental Consequences:</strong> Persistent flooding may lead to long-term changes in
+                        ecosystems, impacting flora and fauna. Soil fertility may suffer, affecting agriculture.</p>
+                </li>
+                <li>
+                    <p><strong>Community Health Challenges:</strong> Extended exposure to floodwaters can contribute to
+                        waterborne diseases, creating long-term health challenges for affected populations.</p>
+                </li>
+                <li>
+                    <p><strong>Infrastructure Decay:</strong> The long-term integrity of damaged infrastructure may be
+                        compromised, necessitating extensive reconstruction efforts and economic strain.</p>
+                </li>
+                <li>
+                    <p><strong>Economic Impact:</strong> Floods can have enduring economic consequences, affecting
+                        businesses, agriculture, and overall regional prosperity over an extended period.</p>
+                </li>
+            </ul>
+        </section>
+    </section>
+
+    <div class="main-slider-container3">
+        <div class="main-slider wrapper3">
+
+            <section class="main-section4">
+                <h2>Other General Impacts:</h2>
+
+                <div class="sub-slider-container3">
+                    <div class="sub-slider-wrapper3">
+
+                        <section class="innerbox" class="section" id="imp1">
+                            <h3 class="section-title3">Impact on Agriculture:</h3>
+                            <div class="highlight" class="imp-study" class="section-content3"
+                                class="image-and-text-container">
+                                <img src="https://assets.telegraphindia.com/telegraph/8bhrCrops.jpg" width="400px"
+                                    alt="Crop Damage Image">
+                                <div class="text1">
+                                    <ul>
+                                        <li>
+                                            <p><strong>Crop Damage:</strong> Floodwaters can submerge farmlands, causing
+                                                immediate damage to
+                                                crops
+                                                and reducing yields.</p>
+                                        </li>
+                                        <li>
+                                            <p><strong>Soil Erosion:</strong> The force of floodwaters can lead to soil
+                                                erosion, depleting
+                                                fertility
+                                                and affecting the long-term productivity of agricultural areas.</p>
+                                        </li>
+                                        <li>
+                                            <p><strong>Disruption of Livestock:</strong> Floods can pose threats to
+                                                livestock, leading to
+                                                loss
+                                                of
+                                                animals and hindering the livelihoods of those dependent on agriculture.
+                                            </p>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section class="innerbox" class="section" id="imp1">
+                            <h3 class="section-title3">Impact on the Economy:</h3>
+                            <div class="highlight" class="imp-study" class="section-content3"
+                                class="image-and-text-container">
+                                <img src="https://img.jagranjosh.com/imported/images/E/Articles/floods.jpg" width="400px"
+                                    alt="Crop Damage Image">
+                                <div class="text1">
+                                    <ul>
+                                        <li>
+                                            <p><strong>Infrastructure Damage:</strong> Floods cause damage to roads,
+                                                bridges, and other
+                                                critical
+                                                infrastructure, disrupting transportation networks and impeding economic
+                                                activities.</p>
+                                        </li>
+                                        <li>
+                                            <p><strong>Business Interruption:</strong> Businesses, particularly in
+                                                flood-affected areas, may
+                                                face
+                                                interruptions, leading to financial losses and economic instability.</p>
+                                        </li>
+                                        <li>
+                                            <p><strong>Insurance Costs:</strong> Increased frequency of floods can raise
+                                                insurance costs for
+                                                both
+                                                businesses and individuals, impacting the overall economic landscape.
+                                            </p>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section class="innerbox" class="section" id="imp1">
+                            <h3 class="section-title3">Impact on Public Health:</h3>
+                            <div class="highlight" class="imp-study" class="section-content3"
+                                class="image-and-text-container">
+                                <img src="https://www.researchgate.net/profile/Md-Rezaul-Karim-2/publication/325908467/figure/fig1/AS:640041906892803@1529609290751/Pie-graph-showing-perceived-causes-of-flood-The-respondents-were-also-asked-to-provide.png"
+                                    width="400px" alt="Public image">
+                                <div>
+                                    <ul>
+                                        <li>
+                                            <p><strong>Waterborne Diseases:</strong> Contamination of water sources
+                                                during floods increases
+                                                the
+                                                risk
+                                                of waterborne diseases, posing a significant threat to public health.
+                                            </p>
+                                        </li>
+                                        <li>
+                                            <p><strong>Vector-Borne Illnesses:</strong> Stagnant water provides breeding
+                                                grounds for
+                                                disease-carrying vectors like mosquitoes, leading to an increase in
+                                                vector-borne illnesses.
+                                            </p>
+                                        </li>
+                                        <li>
+                                            <p><strong>Mental Health Challenges:</strong> Displacement, loss of
+                                                property, and the overall
+                                                disruption
+                                                caused by floods can contribute to mental health challenges within
+                                                affected communities.</p>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+    <button id="nextButton4">Next</button> <button id="prevButton4">Previous</button>
+
+    </section>
+    <section id="adjust">
+        <h2>Some of the Flood Areas Of India Marked with Blue Pointer(Interactive Map)</h2>
+        <div id="map"></div>
+    </section>
+    <section id="prevention">
+        <h2>Prevention and Mitigation</h2>
+        <section class="innerbox" id="five">
+            <h3>Preventive Measures and Strategies:</h3>
+            <ul>
+                <li>
+                    <p><strong>Early Warning Systems:</strong> Implement and maintain robust early warning systems to
+                        provide timely alerts to communities at risk, enabling proactive evacuation and preparation.</p>
+                </li>
+                <li>
+                    <p><strong>Floodplain Zoning:</strong> Establish and enforce zoning regulations to restrict
+                        development
+                        in flood-prone areas, minimizing exposure to risks and potential damage.</p>
+                </li>
+                <li>
+                    <p><strong>Infrastructure Planning:</strong> Design and build resilient infrastructure, including
+                        dams,
+                        levees, and stormwater management systems, to control water flow and reduce the impact of
+                        floods.
+                    </p>
+                </li>
+                <li>
+                    <p><strong>Land Use Management:</strong> Implement sustainable land use practices, such as
+                        afforestation
+                        and maintaining natural drainage systems, to reduce soil erosion and enhance water absorption.
+                    </p>
+                </li>
+                <li>
+                    <p><strong>Community Preparedness:</strong> Conduct community awareness programs, drills, and
+                        training
+                        to enhance preparedness, ensuring that residents know evacuation routes and emergency
+                        procedures.
+                    </p>
+                </li>
+                <li>
+                    <p><strong>International Cooperation:</strong> Foster collaboration at the international level for
+                        transboundary river management and sharing of data, promoting joint efforts to address the
+                        global
+                        nature of flooding.</p>
+                </li>
+                <li>
+                    <p><strong>Insurance and Risk Reduction:</strong> Encourage the use of flood insurance and risk
+                        reduction strategies to provide financial protection and incentivize preventive measures for
+                        businesses and individuals.</p>
+                </li>
+            </ul>
+        </section>
+        <br>
+        <section class="innerbox" id="six">
+            <h3>Technological or Advanced Strategies to Prevent Floods:</h3>
+            <ul>
+                <li>
+                    <h4>Early Warning Systems:</h4>
+                    <ul>
+                        <li>
+                            <p><strong>Automated Alert Systems:</strong> Implement automated early warning systems that
+                                use
+                                real-time data from weather stations, river gauges, and satellites to detect potential
+                                flood
+                                events.</p>
+                        </li>
+                        <li>
+                            <p><strong>Community Outreach:</strong> Develop communication channels to disseminate alerts
+                                through various mediums, including text messages, sirens, and social media, ensuring
+                                widespread awareness.</p>
+                        </li>
+                        <li>
+                            <p><strong>Evacuation Planning:</strong> Integrate early warning systems with comprehensive
+                                evacuation plans, specifying safe routes, shelter locations, and procedures for
+                                different
+                                flood scenarios.</p>
+                        </li>
+                    </ul>
+                </li>
+
+                <li>
+                    <h4>Floodplain Management:</h4>
+                    <ul>
+                        <li>
+                            <p><strong>Zoning Regulations:</strong> Enforce zoning regulations that restrict or guide
+                                construction in flood-prone areas, minimizing exposure to risks and reducing potential
+                                damage.</p>
+                        </li>
+                        <li>
+                            <p><strong>Natural Floodplain Preservation:</strong> Preserve and restore natural
+                                floodplains,
+                                which act as buffers, absorbing excess water and reducing the severity of flooding
+                                downstream.</p>
+                        </li>
+                        <li>
+                            <p><strong>Education and Outreach:</strong> Educate communities about the importance of
+                                floodplain management and the role of natural ecosystems in flood prevention through
+                                outreach programs.</p>
+                        </li>
+                    </ul>
+                </li>
+
+                <li>
+                    <h4>Infrastructure Planning:</h4>
+                    <ul>
+                        <li>
+                            <p><strong>Resilient Infrastructure:</strong> Design and construct resilient infrastructure,
+                                including dams, levees, and stormwater management systems, capable of withstanding and
+                                controlling the flow of floodwaters.</p>
+                        </li>
+                        <li>
+                            <p><strong>Flood-Resistant Buildings:</strong> Implement building codes that require
+                                structures
+                                in flood-prone areas to be elevated, flood-resistant, or designed to withstand
+                                inundation
+                                without significant damage.</p>
+                        </li>
+                        <li>
+                            <p><strong>Green Infrastructure:</strong> Integrate green infrastructure solutions, such as
+                                permeable surfaces and green roofs, to enhance natural drainage and reduce runoff.</p>
+                        </li>
+                    </ul>
+                </li>
+
+                <li>
+                    <h4>Community Preparedness:</h4>
+                    <ul>
+                        <li>
+                            <p><strong>Training and Drills:</strong> Conduct regular training sessions and drills to
+                                familiarize community members with evacuation procedures, emergency shelters, and first
+                                aid
+                                practices.</p>
+                        </li>
+                        <li>
+                            <p><strong>Local Emergency Committees:</strong> Establish and empower local emergency
+                                committees
+                                to coordinate preparedness efforts, disseminate information, and organize community
+                                response
+                                during floods.</p>
+                        </li>
+                        <li>
+                            <p><strong>Public Awareness Campaigns:</strong> Launch public awareness campaigns that
+                                emphasize
+                                the importance of individual preparedness, including the creation of emergency kits and
+                                communication plans.</p>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+    </section>
+
+
+
+    <div class="main-slider-container">
+        <div class="main-slider wrapper">
+
+
+            <section id=casestudies class="main-section">
+                <h2>Floods in India:</h2>
+
+
+                <div class="sub-slider-container">
+                    <div class="sub-slider-wrapper">
+
+
+                        <section class="innerbox" class="innerbox section" class="section" id="case1">
+                            <h3 class="section-title">Case Study: Assam Floods (2020)</h3>
+                            <div class="case-study" class="section-content" class="image-and-text-container">
+                                <img src="https://eciph.in/wp-content/uploads/2022/07/993595-849928-assam-floods-pti-071919.jpg" width="500px" alt="Assam Image"
+                                    class="image1">
+                                <div class="text1">
+                                    <p><strong>Cause:</strong> Heavy monsoon rains in 2020 led to extensive flooding in
+                                        Assam,
+                                        affecting the
+                                        Brahmaputra River and its tributaries.</p>
+                                    <p><strong>Impact on Wildlife:</strong> The floods inundated Kaziranga National
+                                        Park, posing a
+                                        threat to
+                                        the wildlife, including the endangered one-horned rhinoceros.</p>
+                                    <p><strong>Humanitarian Challenges:</strong> Displacement of communities and damage
+                                        to
+                                        infrastructure
+                                        created humanitarian challenges, requiring swift and coordinated response
+                                        efforts.</p>
+                                    <p><strong>Community Participation:</strong> The floods highlighted the importance
+                                        of community
+                                        participation in rescue operations and emphasized the need for sustainable flood
+                                        management
+                                        practices.</p>
+                                </div>
+                            </div>
+                        </section>
+
+
+
+                        <section class="innerbox" class="innerbox section" class="section" id="case1">
+                            <h3 class="section-title">Case Study: Kerala Floods (2018)</h3>
+                            <div class="case-study" class="section-content" class="image-and-text-container">
+                                <img src="https://cdn.confident-group.com/wp-content/uploads/2018/10/01125324/COVER-Kerala-Floods-The-Disaster-Of-The-Century-_-What-We-Aim-To-Do-About-It.jpg" width="500px" alt="Kerala Image"
+                                    class="image1">
+                                <div class="text1">
+                                    <p><strong>Cause:</strong> In August 2018, Kerala faced unprecedented rainfall,
+                                        leading to
+                                        severe
+                                        flooding and landslides across the state.</p>
+                                    <p><strong>Impact:</strong> The floods affected millions of people, causing
+                                        widespread
+                                        displacement and
+                                        resulting in significant economic losses.</p>
+                                    <p><strong>Community Resilience:</strong> Local communities and volunteers played a
+                                        crucial role
+                                        in
+                                        rescue and relief operations, showcasing remarkable resilience.</p>
+                                    <p><strong>Lessons Learned:</strong> The Kerala floods underscored the importance of
+                                        integrated
+                                        water
+                                        management, early warning systems, and community engagement in disaster
+                                        preparedness.</p>
+                                </div>
+                            </div>
+                        </section>
+
+
+
+                        <section class="innerbox" class="section" class="innerbox section" id="case1">
+                            <h3 class="section-title">Case Study: Uttarakhand Flash Floods (2013)</h3>
+                            <div class="case-study" class="section-content" class="image-and-text-container">
+                                <img src="https://s01.sgp1.digitaloceanspaces.com/large/885292-58701-mgfsztvczb-1496647266.jpg" width="500px"
+                                    alt="Uttarakhand Image" class="image1">
+                                <div class="text1">
+                                    <p><strong>Impact:</strong> In June 2013, heavy rainfall led to flash floods and
+                                        landslides in
+                                        Uttarakhand, affecting the Kedarnath Valley and surrounding areas.</p>
+                                    <p><strong>Human Toll:</strong> The disaster claimed thousands of lives and left
+                                        many missing.
+                                        Pilgrims
+                                        and locals were severely affected.</p>
+                                    <p><strong>Infrastructure Damage:</strong> Critical infrastructure, including roads
+                                        and bridges,
+                                        was
+                                        destroyed, hampering rescue and relief operations.</p>
+                                    <p><strong>Response:</strong> The Indian Army, paramilitary forces, and local
+                                        agencies conducted
+                                        extensive rescue operations, highlighting the importance of coordinated disaster
+                                        response.
+                                    </p>
+                                </div>
+
+                            </div>
+                        </section>
+
+
+
+                        <section class="innerbox" class="section" class="innerbox section" id="case1">
+                            <h3 class="section-title">Case Study: Bihar Floods (2008)</h3>
+                            <div class="case-study" class="section-content" class="image-and-text-container">
+                                <img src="https://english.cdn.zeenews.com/sites/default/files/2021/08/18/961842-bihar-floods-six.jpg"
+                                    width="500px" alt="Uttarakhand Image" class="image1">
+                                <div class="text1">
+                                    <p><strong>Cause:</strong> Intense monsoon rains led to the Kosi River breaching its
+                                        embankments,
+                                        causing widespread flooding in Bihar.</p>
+                                    <p><strong>Impact on Agriculture:</strong> Large agricultural areas were submerged,
+                                        leading to
+                                        extensive
+                                        damage to crops and affecting the livelihoods of farmers.</p>
+                                    <p><strong>Displacement:</strong> Hundreds of thousands of people were displaced,
+                                        seeking
+                                        shelter in
+                                        relief camps and facing challenges in accessing basic necessities.</p>
+                                    <p><strong>Long-term Measures:</strong> The disaster prompted discussions on
+                                        long-term measures,
+                                        including embankment strengthening and river management strategies.</p>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+    <div id="left"> <button id="nextButton">Next</button></div>
+    <div id="right"><button id="prevButton">Previous</button></div>
+    <!-- <button id="nextButton2">Next</button><button id="prevButton2">Previous</button> -->
+
+    <div class="main-slider-container2">
+        <div class="main-slider wrapper2">
+
+
+            <section class="main-section3">
+                <h2>Floods Around the World: Regional Responses</h2>
+
+                <div class="sub-slider-container2">
+                    <div class="sub-slider-wrapper2">
+
+
+
+                        <section id="seven" class="innerbox" class="section" id="com1">
+                            <h3 class="section-title2">Community-Led Initiatives in India: The Kuttanad Model</h3>
+                            <div class="highlight" class="com-study" class="section-content2"
+                                class="image-and-text-container">
+
+                                <div class="text1">
+                                    <p><strong>Approach:</strong> The Kuttanad region in Kerala, India, has implemented
+                                        community-based
+                                        flood management, incorporating traditional agricultural practices.</p>
+                                    <p><strong>Paddy Fields as Reservoirs:</strong> The unique geography of Kuttanad
+                                        involves paddy fields
+                                        lying below sea level. During heavy rains, these fields act as natural
+                                        reservoirs,
+                                        absorbing excess
+                                        water.</p>
+                                    <p><strong>Community Cooperation:</strong> Local communities actively participate in
+                                        maintaining canals
+                                        and bunds, working collectively to manage water levels and prevent flooding
+                                        during
+                                        the monsoon.</p>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section id="eight" class="innerbox" class="section" id="com1">
+                            <h3 class="section-title2">Government-Led Initiatives in India: The National Cyclone Risk
+                                Mitigation Project</h3>
+                            <div class="highlight" class="case-study" class="section-content2"
+                                class="image-and-text-container">
+                                <div class="text1">
+                                    <p><strong>Project Overview:</strong> The National Cyclone Risk Mitigation Project
+                                        (NCRMP) in India
+                                        focuses on enhancing the country's preparedness and response to cyclones and
+                                        associated floods.</p>
+                                    <p><strong>Infrastructure Development:</strong> The project involves the
+                                        construction of
+                                        cyclone
+                                        shelters, embankments, and early warning communication systems in vulnerable
+                                        coastal
+                                        areas to
+                                        minimize flood impact.</p>
+                                    <p><strong>Capacity Building:</strong> NCRMP includes capacity-building initiatives,
+                                        training
+                                        communities and local authorities to improve their ability to respond
+                                        effectively to
+                                        cyclones and
+                                        floods.</p>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+
+            </section>
+        </div>
+    </div>
+    <button id="nextButton3">Next</button> <button id="prevButton3">Previous</button>
+
+
+
+
+    <section>
+        <h2>Conclusion: Understanding and Responding to Floods</h2>
+        <section class="innerbox" id="rearrange" id="nine" id="conclusion">
+            <div class="conclusion">
+                <p><strong>As we navigate the complex landscape of floods,</strong> it becomes evident that
+                    these
+                    natural disasters impact regions globally, presenting diverse challenges and opportunities
+                    for
+                    resilience. Key takeaways from our exploration include:</p>
+                <ul>
+                    <li>Understanding the causes of floods, from natural phenomena to human-induced factors, is
+                        crucial
+                        in developing effective preventive measures.</li>
+                    <li>The effects of floods on the environment, communities, and infrastructure are
+                        wide-ranging,
+                        necessitating comprehensive strategies for both immediate and long-term recovery.</li>
+                    <li>Examining case studies, such as the Great Mississippi Flood of 1927 and recent events in
+                        India,
+                        highlights the importance of adaptive responses and policy changes in the face of
+                        evolving
+                        challenges.</li>
+                    <li>Preventive measures, including early warning systems, floodplain management, and
+                        community
+                        engagement, play a pivotal role in mitigating the impact of floods.</li>
+                    <li>Regional responses vary, showcasing a spectrum of approaches from community-led
+                        initiatives, as
+                        seen in Kuttanad, India, to government-led projects like the National Cyclone Risk
+                        Mitigation
+                        Project.</li>
+                </ul>
+                <p><strong>By synthesizing knowledge, fostering collaboration, and implementing innovative
+                        solutions,</strong> we can collectively work towards building resilient communities that
+                    can
+                    withstand and adapt to the challenges posed by floods. Let our shared understanding guide us
+                    in
+                    creating a future where the impact of floods is minimized, and the response is swift and
+                    effective.
+                </p>
+            </div>
+
+
+        </section>
+
+    </section>
+
+    <!-- Other sections (Causes, Effects, Prevention, Case Studies, Conclusion) will go here -->
+
+    <footer>
+        <p>&copy; 2023 Floods Webpage</p>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const mainSliderWrapper = document.querySelector('.main-slider-wrapper');
+            const subSliderWrapper = document.querySelector('.sub-slider-wrapper');
+            let mainCurrentIndex = 0;
+            let subCurrentIndex = 0;
+
+            function showMainSection(index) {
+                const mainSliderWrapper = document.querySelector('.main-slider-wrapper'); // Ensure we select the element inside the function
+                if (mainSliderWrapper) { // Check if the element is found
+                    const translateValue = -index * 100 + '%';
+                    mainSliderWrapper.style.transform = 'translateX(' + translateValue + ')';
+                } else {
+                    console.error('Main slider wrapper not found.');
+                }
+            }
+
+            function showSubSection(index) {
+                const subSliderWrapper = document.querySelector('.sub-slider-wrapper');
+                if (subSliderWrapper) {
+                    const translateValue = -index * 100 + '%';
+                    subSliderWrapper.style.transform = 'translateX(' + translateValue + ')';
+                } else {
+                    console.error('Sub slider wrapper not found.');
+                }
+            }
+
+            function nextSection() {
+                if (subCurrentIndex < 3) {
+                    subCurrentIndex++;
+                } else if (mainCurrentIndex < 3) {
+                    mainCurrentIndex++;
+                    subCurrentIndex = 0;
+                }
+                showMainSection(mainCurrentIndex);
+                showSubSection(subCurrentIndex);
+            }
+
+            function prevSection() {
+                if (subCurrentIndex > 0) {
+                    subCurrentIndex--;
+                } else if (mainCurrentIndex > 0) {
+                    mainCurrentIndex--;
+                    subCurrentIndex = 3;
+                }
+                showMainSection(mainCurrentIndex);
+                showSubSection(subCurrentIndex);
+            }
+
+
+            // Add event listeners for your buttons
+            document.getElementById('prevButton').addEventListener('click', prevSection);
+            document.getElementById('nextButton').addEventListener('click', nextSection);
+
+            // Initial setup
+            showMainSection(mainCurrentIndex);
+            showSubSection(subCurrentIndex);
+        });
+    </script>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Initialize the map
+            const map = L.map('map').setView([20.5937, 78.9629], 5); // Set initial center and zoom
+
+            // Add a map tile layer (you can choose a different tile layer based on your preference)
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '© OpenStreetMap contributors'
+            }).addTo(map);
+
+            // Add markers for specific locations (e.g., major cities)
+            const cities = [
+                { name: 'Tamil Nadu', coordinates: [11.1271, 78.6569] },
+                { name: 'Kerala', coordinates: [10.1632, 76.6412] },
+                { name: 'Mumbai', coordinates: [19.0760, 72.8777] },
+                { name: 'Kolkata', coordinates: [22.5726, 88.3639] },
+                { name: 'Guwahati', coordinates: [26.1158, 91.7086] },
+                { name: 'Patna', coordinates: [25.5941, 85.1376] },
+                { name: 'Bengaluru', coordinates: [12.9716, 77.5946] },
+                { name: 'Ahmedabad', coordinates: [23.0225, 72.5714] },
+                // Add more cities as needed
+            ];
+
+            cities.forEach(city => {
+                const marker = L.marker(city.coordinates).addTo(map);
+                marker.bindPopup(city.name); // Add a popup with the city name
+            });
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const mainSliderWrapper1 = document.querySelector('.main-slider-wrapper1');
+            const subSliderWrapper1 = document.querySelector('.sub-slider-wrapper1');
+            let mainCurrentIndex = 0;
+            let subCurrentIndex = 0;
+
+            function showMainSection(index) {
+                const mainSliderWrapper1 = document.querySelector('.main-slider-wrapper1'); // Ensure we select the element inside the function
+                if (mainSliderWrapper1) { // Check if the element is found
+                    const translateValue = -index * 100 + '%';
+                    mainSliderWrapper1.style.transform = 'translateX(' + translateValue + ')';
+                } else {
+                    console.error('Main slider wrapper1 not found.');
+                }
+            }
+
+            function showSubSection(index) {
+                const subSliderWrapper1 = document.querySelector('.sub-slider-wrapper1');
+                if (subSliderWrapper1) {
+                    const translateValue = -index * 100 + '%';
+                    subSliderWrapper1.style.transform = 'translateX(' + translateValue + ')';
+                } else {
+                    console.error('Sub slider wrapper1 not found.');
+                }
+            }
+
+            function nextSection() {
+                if (subCurrentIndex < 4) {
+                    subCurrentIndex++;
+                } else if (mainCurrentIndex < 4) {
+                    mainCurrentIndex++;
+                    subCurrentIndex = 0;
+                }
+                showMainSection(mainCurrentIndex);
+                showSubSection(subCurrentIndex);
+            }
+
+            function prevSection() {
+                if (subCurrentIndex > 0) {
+                    subCurrentIndex--;
+                } else if (mainCurrentIndex > 0) {
+                    mainCurrentIndex--;
+                    subCurrentIndex = 4;
+                }
+                showMainSection(mainCurrentIndex);
+                showSubSection(subCurrentIndex);
+            }
+
+
+            // Add event listeners for your buttons
+            document.getElementById('prevButton2').addEventListener('click', prevSection);
+            document.getElementById('nextButton2').addEventListener('click', nextSection);
+
+            // Initial setup
+            showMainSection(mainCurrentIndex);
+            showSubSection(subCurrentIndex);
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const mainSliderWrapper2 = document.querySelector('.main-slider-wrapper2');
+            const subSliderWrapper2 = document.querySelector('.sub-slider-wrapper2');
+            let mainCurrentIndex = 0;
+            let subCurrentIndex = 0;
+
+            function showMainSection(index) {
+                const mainSliderWrapper2 = document.querySelector('.main-slider-wrapper2'); // Ensure we select the element inside the function
+                if (mainSliderWrapper2) { // Check if the element is found
+                    const translateValue = -index * 100 + '%';
+                    mainSliderWrapper2.style.transform = 'translateX(' + translateValue + ')';
+                } else {
+                    console.error('Main slider wrapper2 not found.');
+                }
+            }
+
+            function showSubSection(index) {
+                const subSliderWrapper2 = document.querySelector('.sub-slider-wrapper2');
+                if (subSliderWrapper2) {
+                    const translateValue = -index * 100 + '%';
+                    subSliderWrapper2.style.transform = 'translateX(' + translateValue + ')';
+                } else {
+                    console.error('Sub slider wrapper2 not found.');
+                }
+            }
+
+            function nextSection() {
+                if (subCurrentIndex < 1) {
+                    subCurrentIndex++;
+                } else if (mainCurrentIndex < 1) {
+                    mainCurrentIndex++;
+                    subCurrentIndex = 0;
+                }
+                showMainSection(mainCurrentIndex);
+                showSubSection(subCurrentIndex);
+            }
+
+            function prevSection() {
+                if (subCurrentIndex > 0) {
+                    subCurrentIndex--;
+                } else if (mainCurrentIndex > 0) {
+                    mainCurrentIndex--;
+                    subCurrentIndex = 1;
+                }
+                showMainSection(mainCurrentIndex);
+                showSubSection(subCurrentIndex);
+            }
+
+
+            // Add event listeners for your buttons
+            document.getElementById('prevButton3').addEventListener('click', prevSection);
+            document.getElementById('nextButton3').addEventListener('click', nextSection);
+
+            // Initial setup
+            showMainSection(mainCurrentIndex);
+            showSubSection(subCurrentIndex);
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const mainSliderWrapper3 = document.querySelector('.main-slider-wrapper3');
+            const subSliderWrapper3 = document.querySelector('.sub-slider-wrapper3');
+            let mainCurrentIndex = 0;
+            let subCurrentIndex = 0;
+
+            function showMainSection(index) {
+                const mainSliderWrapper3 = document.querySelector('.main-slider-wrapper3'); // Ensure we select the element inside the function
+                if (mainSliderWrapper3) { // Check if the element is found
+                    const translateValue = -index * 100 + '%';
+                    mainSliderWrapper3.style.transform = 'translateX(' + translateValue + ')';
+                } else {
+                    console.error('Main slider wrapper3 not found.');
+                }
+            }
+
+            function showSubSection(index) {
+                const subSliderWrapper3 = document.querySelector('.sub-slider-wrapper3');
+                if (subSliderWrapper3) {
+                    const translateValue = -index * 100 + '%';
+                    subSliderWrapper3.style.transform = 'translateX(' + translateValue + ')';
+                } else {
+                    console.error('Sub slider wrapper3 not found.');
+                }
+            }
+
+            function nextSection() {
+                if (subCurrentIndex < 2) {
+                    subCurrentIndex++;
+                } else if (mainCurrentIndex < 2) {
+                    mainCurrentIndex++;
+                    subCurrentIndex = 0;
+                }
+                showMainSection(mainCurrentIndex);
+                showSubSection(subCurrentIndex);
+            }
+
+            function prevSection() {
+                if (subCurrentIndex > 0) {
+                    subCurrentIndex--;
+                } else if (mainCurrentIndex > 0) {
+                    mainCurrentIndex--;
+                    subCurrentIndex = 2;
+                }
+                showMainSection(mainCurrentIndex);
+                showSubSection(subCurrentIndex);
+            }
+
+
+            // Add event listeners for your buttons
+            document.getElementById('prevButton4').addEventListener('click', prevSection);
+            document.getElementById('nextButton4').addEventListener('click', nextSection);
+
+            // Initial setup
+            showMainSection(mainCurrentIndex);
+            showSubSection(subCurrentIndex);
+        });
+    </script>
+
+</body>
+
+</html>
